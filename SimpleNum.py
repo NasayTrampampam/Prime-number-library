@@ -9,24 +9,24 @@ def nextPrime(inputNum):
                 #found the prime
                 return nextNumToChk
 
-def all_divisors(n: int) -> list:  # находем все делители число
+def all_divisors(n: int) -> list:  # find all divisors of a number
     a = 1
     div = []
     div2 = []
-    end = n**0.5  # мы идем до корня из числа потому-что у всех делителей до этого числа есть пара из оставшихся
-    while a < end:  # проверяем каждое число, является ли делителем n
-        if n % a == 0:  # если да то добавляем его в список и его пару в другой список
+    end = n**0.5  # we go to the root of the number because all divisors up to this number have a pair of the remaining
+    while a < end:  #  check each number to see if it's a divisor of n
+        if n % a == 0:  # if so, add it to the list and its pair to another list
             div.append(a)
             div2.insert(0, n//a)
         a += 1
     if int(n**0.5) == n**0.5:
         div.append(n**0.5)
-    return div+div2  # возвращаем списки
+    return div+div2 
 
 
-def isPrime(n: int) -> bool:  # проверяем на простоту
+def isPrime(n: int) -> bool:  # checking for simplicity
     c = len(all_divisors(n))
-    if c == 2:  # если всего у числа два делителя то оно простое
+    if c == 2:  # If a number has two divisors, then it is prime.
         return True
     else:
         return False
